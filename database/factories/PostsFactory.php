@@ -17,14 +17,7 @@ class PostsFactory extends Factory
     public function definition(): array
     {
         return [
-            'owner_id' => 1,
-            'created_at' => new \DateTime("now"),
-            'updated_at',
-            'title',
-            'slug',
-            'content',
-            'is_active',
-            'uri'
+            //
         ];
     }
 }

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('slug', 100);
             $table->longText('content');
             $table->tinyInteger('is_active');
-            $table->string('uri', 100);
+            $table->string('uri', 100)->nullable();
         });
     }
 

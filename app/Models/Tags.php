@@ -11,6 +11,7 @@ class Tags extends Model
     use HasFactory;
 
     protected $primaryKey = 'tag_id';
+    public $timestamps = false;
 
     protected $fillable = [
         'title',
