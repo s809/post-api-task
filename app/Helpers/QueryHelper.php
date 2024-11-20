@@ -51,6 +51,10 @@ class QueryHelper
                 $this->getQueryPart($type, $field, $params, $configItem['convert'] ?? null)($this->query);
             }
         }
+
+        if ($userOptions['order']) {
+            $this->query->orderBy(...$userOptions['order']);
+        }
     }
 
     // Получение скомпилированного запроса QueryBuilder'a

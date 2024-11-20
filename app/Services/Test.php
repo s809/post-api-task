@@ -62,6 +62,17 @@ class Test
         dump($testResults);
 
         // !!! Запись результатов в zip-архив
+        $zipPath = storage_path('app/generated/test.zip');
+
+        $zipArchive = new \ZipArchive();
+        $zipArchive->open($zipPath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE);
+        $zipArchive->setPassword('test-123');
+
+        $zipArchive->addEmptyDir('posts');
+        $zipArchive->addFromString('posts/items.json', json_encode($testResults));
+        $zipArchive->setEncryptionName('posts/items.json', \ZipArchive::EM_TRAD_PKWARE);
+        
+        $zipArchive->close();
 
     }
 
