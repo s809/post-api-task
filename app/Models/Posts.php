@@ -20,14 +20,6 @@ class Posts extends Model
         'uri'
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime'
-        ];
-    }
-
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tags::class, 'rel_posts_tags', 'post_id', 'tag_id');

@@ -1,6 +1,9 @@
-<?
+<?php
 
 namespace App\Services;
+
+use App\Helpers\QueryHelper;
+use App\Models\Posts;
 
 class Test
 {
@@ -9,7 +12,17 @@ class Test
     {
 
         $config = [
-            // ... Ваша реализация конфига для преобразования массива фильтров в запрос QueryBuilder'a
+            'ids' => 'id',
+            'tags' => [
+                'fkField' => 'slug'
+            ],
+            'active' => 'is_active',
+            'author' => 'owner_id',
+            'create_date_range' => 'created_at',
+            'created_at' => [
+                'type' => 'range',
+                'convert' => 'date'
+            ]
         ];
 
         /*
